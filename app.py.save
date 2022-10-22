@@ -1,0 +1,84 @@
+
+Tutorials
+>
+Deploy a Flask App Using Gunicorn to App …
+Give Feedback
+Deploy a Flask App Using Gunicorn to App Platform 
+Validated on 29 Sep 2021 • Posted on 29 Sep 2021
+In this guide, you will build a Python application using the Flask microframework on DigitalOcean’s App Platform. Flask is a Python-based microframework that is popular with web developers, given its lightweight nature and ease of use.
+
+This tutorial will focus on deploying a Flask app to App Platform using gunicorn. Gunicorn is a Python WSGI HTTP Server that uses a pre-fork worker model. By using gunicorn, you’ll be able to serve your Flask application on more than one thread.
+
+Prerequisites
+To complete this tutorial, you’ll need:
+
+A GitHub account.
+Python3 installed on your local machine. You can follow the following tutorials for installing Python on Windows, Mac, or Linux.
+A text editor. You can use Visual Studio Code or your favorite text editor.
+ Note
+Note: If you are looking for a general introduction to the Python programming language, our tutorial series, How To Code in Python, is a great place to start.
+Step 1: Creating a Python Virtual Environment for your Project
+Before you get started, you need to set up your Python developer environment. You will install your Python requirements within a virtual environment for easier management.
+
+First, let’s create a project directory for our code and requirements.txt file to be stored in and change into that directory. Run the following commands:
+
+mkdir flask-app
+cd flask-app
+Copy
+Next, create a directory in your home directory that you can use to store all of your virtual environments:
+
+mkdir ~/.venvs
+Copy
+Now create your virtual environment using Python:
+
+python3 -m venv ~/.venvs/flask
+Copy
+This creates a directory called flask within your .venvs directory. Inside, it installs a local version of Python and a local version of pip. You can use this to install and configure an isolated Python environment for your project.
+
+Before you install your project’s Python requirements, you need to activate the virtual environment.
+
+Use the following command:
+
+source ~/.venvs/flask/bin/activate
+Copy
+Your prompt changes to indicate that you are now operating within a Python virtual environment. It looks like this: (flask)user@host:~$.
+
+With your virtual environment active, install Flask and gunicorn using the local instance of pip:
+
+pip install Flask gunicorn
+Copy
+ Note
+Note: When the virtual environment is activated (when your prompt has (flask) preceding it), use pip instead of pip3, even if you are using Python 3. The virtual environment’s copy of the tool is always named pip, regardless of the Python version.
+Now that you have the flask package installed, save this requirement and its dependencies so App Platform can install them later.
+
+Do this now using pip and then saving the information to a requirements.txt file:
+
+pip freeze > requirements.txt
+Copy
+You now have all of the software needed to start a Flask app. You are almost ready to deploy.
+
+Step 2: Creating a Minimal Flask App
+In this step, you will build a standard Hello Sammy! Flask application. You won’t focus on the mechanics of Flask outside of how to deploy it to App Platform. If you wish to deploy another application, the following steps will work for a wide range of Flask applications.
+
+Using your favorite text editor, open a file named app.py:
+
+nano app.py
+Copy
+Now add the following code to the file:
+
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello Sammy!'
+^x
+ wq:
+qw:
+X
+X^X
+^x
+
+
+
+
